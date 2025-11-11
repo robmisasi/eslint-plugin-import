@@ -788,7 +788,7 @@ ruleTester.run('order', rule, {
         import c from "foo/bar";
         import d from "foo/barfoo";
       `,
-      options: [{ alphabetize: { order: 'asc' }, orderByFullPathString: true }],
+      options: [{ alphabetize: { order: 'asc', orderByFullPathString: true } }],
     }),
     // Option alphabetize: {order: 'asc'} with orderByFullPathString: true
     test({
@@ -798,7 +798,7 @@ ruleTester.run('order', rule, {
         import c from "foo/foobar/bar";
         import d from "foo/foobar/barfoo";
       `,
-      options: [{ alphabetize: { order: 'asc' }, orderByFullPathString: true }],
+      options: [{ alphabetize: { order: 'asc', orderByFullPathString: true } }],
     }),
     // Option alphabetize: {order: 'desc'} with orderByFullPathString: true
     test({
@@ -808,7 +808,7 @@ ruleTester.run('order', rule, {
         import b from "foo-bar";
         import a from "foo";
       `,
-      options: [{ alphabetize: { order: 'desc' }, orderByFullPathString: true }],
+      options: [{ alphabetize: { order: 'desc', orderByFullPathString: true } }],
     }),
     // Option alphabetize: {order: 'desc'} with orderByFullPathString: true and file names having non-alphanumeric characters.
     test({
@@ -817,10 +817,7 @@ ruleTester.run('order', rule, {
         import b from "foo-bar";
         import c from "foo,bar";
         import a from "foo";`,
-      options: [{
-        alphabetize: { order: 'desc' },
-        orderByFullPathString: true,
-      }],
+      options: [{ alphabetize: { order: 'desc', orderByFullPathString: true } }],
     }),
     // Option alphabetize with newlines-between: {order: 'asc', newlines-between: 'always'}
     test({
@@ -2697,8 +2694,10 @@ ruleTester.run('order', rule, {
         import b from "foo-bar";
       `,
       options: [{
-        alphabetize: { order: 'asc' },
-        orderByFullPathString: true,
+        alphabetize: {
+          order: 'asc',
+          orderByFullPathString: true,
+        },
       }],
       output: `
         import a from "foo";
